@@ -10,31 +10,29 @@ import br.com.helloworld.mvp.entity.User;
 
 /**
  * @author thales.bm92@gmail.com
+ * @description The provider is responsible to call the REST server and get the response
  */
 public class UserProvider implements UserContractor.Provider {
     private final String TAG = UserProvider.class.getSimpleName();
 
-    private final InitCallback mCallback;
-
-    public UserProvider(InitCallback callback) {
-        this.mCallback = callback;
-    }
-
     @Override
-    public void saveUser(User user) {
-
-        // TODO: salva o usuario em algum lugar
-
+    public void saveUser(User user, InitCallback callback) {
         Log.d(TAG, "UserProvider::saveUser()");
 
         Random random = new Random();
 
         if (random.nextBoolean()) {
-            Log.d(TAG, "UserProvider::saveUser()::nextBoolean==true");
-            mCallback.onSuccessful();
+            // user was saved with success
+
+            Log.d(TAG, "UserProvider::saveUser()::nextBoolean == true");
+
+            callback.onSuccessful();
         } else {
-            Log.d(TAG, "UserProvider::saveUser()::nextBoolean==false");
-            mCallback.onUnsuccessful();
+            // it was not possible to save the user
+
+            Log.d(TAG, "UserProvider::saveUser()::nextBoolean == false");
+
+            callback.onUnsuccessful();
         }
     }
 }

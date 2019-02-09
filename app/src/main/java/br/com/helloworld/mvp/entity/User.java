@@ -1,5 +1,8 @@
 package br.com.helloworld.mvp.entity;
 
+/**
+ * @author thales.bm92@gmail.com
+ */
 public class User {
 
     private Long id;

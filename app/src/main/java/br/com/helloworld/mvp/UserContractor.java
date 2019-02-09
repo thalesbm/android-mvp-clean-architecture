@@ -2,21 +2,28 @@ package br.com.helloworld.mvp;
 
 import br.com.helloworld.mvp.entity.User;
 
+/**
+ * @author thales.bm92@gmail.com
+ */
 public interface UserContractor {
 
     interface View {
-        void showErrorMessage();
+        void showSuccessfulMessage();
+
+        void showUnsuccessfulMessage();
     }
 
     interface Presenter {
-        void saveUser(User user);
+        void savedUserSuccessful();
+
+        void savedUserUnsuccessful();
     }
 
-    interface Repository {
+    interface Interactor {
         void saveUser(User user);
     }
 
     interface Provider {
-        void saveUser(User user);
+        void saveUser(User user, InitCallback callback);
     }
 }
