@@ -5,18 +5,17 @@ import android.util.Log;
 import java.util.Random;
 
 import br.com.helloworld.mvp.InitCallback;
-import br.com.helloworld.mvp.UserContractor;
-import br.com.helloworld.mvp.entity.User;
+import br.com.helloworld.mvp.model.UserModel;
 
 /**
  * @author thales.bm92@gmail.com
  * @description The provider is responsible to call the REST server and get the response
  */
-public class UserProvider implements UserContractor.Provider {
-    private final String TAG = UserProvider.class.getSimpleName();
+public class UserProviderImpl implements IUserProvider {
+    private final String TAG = UserProviderImpl.class.getSimpleName();
 
     @Override
-    public void saveUser(User user, InitCallback callback) {
+    public void saveUser(UserModel user, InitCallback callback) {
         Log.d(TAG, "UserProvider::saveUser()");
 
         Random random = new Random();

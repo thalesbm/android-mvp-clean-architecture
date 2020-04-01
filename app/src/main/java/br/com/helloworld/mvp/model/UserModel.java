@@ -1,18 +1,14 @@
-package br.com.helloworld.mvp.entity;
+package br.com.helloworld.mvp.model;
 
 /**
  * @author thales.bm92@gmail.com
  */
-public class User {
+public class UserModel {
 
     private Long id;
-
     private String name;
-
     private String surname;
-
     private String email;
-
     private int age;
 
     public Long getId() {
